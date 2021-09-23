@@ -1,0 +1,90 @@
+npx create-react-app c4kui1
+npm install @material-ui/core
+npm install @material-ui/icons
+npm install firebase
+npm install firebase@9.0.2 --save
+npm install react-responsive-carousel --save
+npm install react-router-dom --save
+npm install --save stripe
+npm install --save @stripe/react-stripe-js @stripe/stripe-js
+npm install axios --save
+
+server
+npm init -y
+npm install stripe express cors dotenv body-parser
+
+npm uninstall x
+npm remove x 
+
+ECommerce web store using MaterialUI and Commerce.js and Stripe
+https://www.youtube.com/watch?v=377AQ0y6LPA
+https://github.com/adrianhajdin/project_e_commerce
+
+cart & basic styling
+https://www.youtube.com/watch?v=AmIdY1Eb8tY
+
+
+setting up theme
+https://www.youtube.com/watch?v=bDkB3LoQKxs
+
+seperatimg concerns
+https://www.youtube.com/watch?v=ocKqJCYkJCs
+
+web dev simplified - pro tips
+https://www.youtube.com/watch?v=0yzoAbrjV6k
+
+app bar spacing - net ninja
+https://www.youtube.com/watch?v=0WbrOfmvjvU
+
+firebase hooks - net ninja
+net ninja - image uploader & Firebase
+https://www.youtube.com/watch?v=vUe91uOx7R0
+https://github.com/iamshaunjp/firegram/tree/final-files
+npm install framer-motion
+storage - allow read, write: if request.auth != null;
+
+async await
+https://www.youtube.com/watch?v=vn3tm0quoqE
+Making asynchronous programming easier with async and await
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises
+https://itnext.io/error-handling-with-async-await-in-js-26c3f20bc06a
+
+carousel
+https://www.npmjs.com/package/react-responsive-carousel
+
+
+ref - reactjs firebase authentication
+https://firebase.google.com/docs/auth/web/password-auth?authuser=0#web-version-9
+https://modularfirebase.web.app/common-use-cases/authentication/
+
+
+web dev simplified - reactjs firebase authentication
+https://www.youtube.com/watch?v=PKwu15ldZ7k&t=3000s
+https://github.com/WebDevSimplified/React-Firebase-Auth
+
+forms
+https://www.w3schools.com/react/react_forms.asp
+https://rangle.io/blog/simplifying-controlled-inputs-with-hooks/
+
+map an object
+let newObj = Object.fromEntries(Object.entries(obj).map(([k, v]) => [k, v * v]));
+
+cleanup on unmounting
+https://stackoverflow.com/questions/54954385/react-useeffect-causing-cant-perform-a-react-state-update-on-an-unmounted-comp
+
+stripe 
+fullstackstudent course 5hr 3:51
+https://www.youtube.com/watch?v=YTc0Zi70AjM
+spachula example - working
+https://www.youtube.com/watch?v=XKWJFpZYVAQ
+Darwin Tech
+https://www.youtube.com/watch?v=XKWJFpZYVAQ
+Web Dev Hero
+https://www.youtube.com/watch?v=lkA4rmo7W6k
+web dev simplified
+2018 - https://www.youtube.com/watch?v=mI_-1tbIXQI
+2021 - https://www.youtube.com/watch?v=1r-F3FIONl8
+with firebase functions
+https://www.youtube.com/watch?v=L_ADtp1tWPA
+traversity media - Heroku deployment
