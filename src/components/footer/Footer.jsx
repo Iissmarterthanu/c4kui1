@@ -1,6 +1,11 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
+import { Box, List, ListItem } from "@material-ui/core";
 import { Container, Grid, Paper, Typography } from '@material-ui/core';
+import { Stack } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { Facebook, Instagram } from '@material-ui/icons';
+
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -19,16 +24,28 @@ function Footer() {
   const classes = useStyles();
 
   return (
-    <Container>
-      <Grid container
-        justify="flex-start"
-        spacing={4}
-        className={classes.grid}>
-        <Grid item xs={12} >
-          <Paper className={classes.paper}>footer</Paper>
-        </Grid>
-      </Grid>
-    </Container>
+    <Box sx={{m:"1em 2em"}}>
+      <Paper>
+        <Stack direction="row" spacing={2} justifyContent="center">
+          <a
+            href="https://www.facebook.com/search/top?q=collars%20for%20kings"
+            className={classes.block}
+            target="_blank"
+            >
+            <Facebook/>
+          </a>
+          <a
+            href="https://www.instagram.com/collarsforkings/"
+            className={classes.block}
+            target="_blank"
+            >
+            <Instagram/>
+          </a>
+        </Stack>
+
+      </Paper>
+
+    </Box>
   );
 }
 

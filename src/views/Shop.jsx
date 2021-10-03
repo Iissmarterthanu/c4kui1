@@ -74,26 +74,30 @@ export default function Shop(props) {
 
 
   const handleAddToCart = (event, pickItem, pickSize) => {
+    // console.log("Cart pickItem", pickItem);
     
-    const exists = cartItems.find(item => item.id === pickItem.id);
+    const exists = cartItems.find(item => item.id === `${pickItem.id} - ${pickSize}`);
  
-    console.log("Cart", exists);
+    console.log("Cart find", exists);
     pickPrice = currProduct.prices[pickSize];
-    console.log("Cart", cartItems, pickItem.id, pickPrice);
+    console.log("Cart items", pickItem.id, pickPrice);
+    console.log("Cart items", cartItems);
 
     if (pickSize) {
 
       if (exists) {
-        setCartItems(cartItems.map(item => item.id === pickItem.id ?
+        setCartItems(cartItems.map(item => item.id === `${pickItem.id} - ${pickSize}` ?
           {...exists, qty: exists.qty + 1 } : 
           item));
       } else {
         setCartItems([...cartItems, 
-          {id: pickItem.id, 
+          {
+            id: `${pickItem.id} - ${pickSize}`, 
             name: pickItem.name,
             qty: 1, 
             size: pickSize, 
-            price: pickPrice
+            price: pickPrice,
+            image: pickItem.images[0],
           }]); 
       }
 

@@ -1,14 +1,25 @@
-import { createTheme } from "@material-ui/core";
+// import { createTheme } from "@material-ui/core";
+
+import { blueGrey } from "@material-ui/core/colors";
+import { createTheme } from "@mui/material";
 
 const theme = createTheme({
   palette: {
+    type: 'light',
     primary: {
-      main: '#eeefeb', //golden
+      main: '#607d8b',
+      light: '#eceff1',
+      dark: '#33434a',
     },
     secondary: {
-      main: '#0b7276', //dark green
+      main: '#693422',
+      light: '#bb8979',
     },
-    text: {primary: "#263238", secondary: "#cfd8dc"},
+    background: {
+      paper: '#f3f3f3',
+      default: '#f1f1f1',
+    },
+    text: {primary: blueGrey[900], secondary: blueGrey[100]},
   },
 
   typography: {

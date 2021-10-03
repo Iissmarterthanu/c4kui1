@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import { Route, Switch } from "react-router";
 
@@ -18,10 +18,13 @@ import useStyles from './appStyles';
 import LogIn from "./components/signing/LogIn";
 import SignUp from "./components/signing/SignUp";
 import ResetPW from "./components/signing/ResetPW";
-import TestButton from "./tests/TestButton";
+import Test from "./tests/TestResize";
 // import TestDB from "./components/TestDB";
 
-import StripeContainer from "./components/stripe/StripeContainer";
+// import StripeContainer from "./components/stripe/StripeContainer";
+import Checkout from "./components/checkout/Checkout";
+import Success from "./components/checkout/Success";
+import Canceled from "./components/checkout/Canceled";
 // import "./App.css";
 
 function App() {
@@ -32,7 +35,15 @@ function App() {
   const [items, setItems] = useState([]);
   const [user, setUser] = useState("none");
   const [cartItems, setCartItems] = useState([]);
-  
+  const cartSummary = useRef({
+    itemsPrice: 0,
+    taxPrice: 0,
+    qtyTotal: 0,
+    shippingPrice: 0,
+    totalPrice: 0,
+  })
+
+
   // run once
   useEffect( () => {
     getFromFS("groups", setGroups );
@@ -83,13 +94,26 @@ function App() {
               {...props}/>} />
 
           <Route path="/Cart" render={(props) => 
-            <Cart cartItems={cartItems} setCartItems={setCartItems} {...props}/>} />
+            <Cart cartItems={cartItems} setCartItems={setCartItems} 
+              cartSummary={cartSummary}
+              {...props}
+              />
+            } />
 
-          <Route path="/Checkout" render={(props) => 
-            <StripeContainer cartItems={cartItems} {...props}/>
+          <Route path="/Checkout/Success" render={(props) => 
+            <Success {...props}/>
           } />
 
+          <Route path="/Checkout/Canceled" render={(props) => 
+            <Canceled {...props}/>
+          } />
 
+          <Route path="/Checkout" render={(props) => 
+            <Checkout cartItems={cartItems} user={user} 
+            cartSummary={cartSummary}
+            {...props}
+            />
+          } />
 
           <Route path="/LogIn" render={(props) => 
             <LogIn user={user} setUser={setUser} {...props}/>} />
@@ -101,7 +125,7 @@ function App() {
             <ResetPW {...props}/>} />
 
           <Route path="/Test" render={(props) => 
-            <TestButton 
+            <Test
               cartItems={cartItems} setCartItems={()=>setCartItems}
               groups={groups} products={products} items={items}
               {...props}/>} />

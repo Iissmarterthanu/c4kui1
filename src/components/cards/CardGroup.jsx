@@ -1,4 +1,4 @@
-import { Card, 
+import { Box, Card, 
   CardActionArea, 
   CardContent, 
   CardMedia, 
@@ -19,7 +19,7 @@ export default function CardGroup({group}) {
   })
   
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, boxShadow: 4 }}>
       <CardActionArea onClick={handleOnClick}>
         <CardMedia
           component="img"

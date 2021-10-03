@@ -1,22 +1,54 @@
-import { Box, Button, Container, IconButton, Typography } from '@material-ui/core';
-import useStyles from './cartStyles';
-import React from 'react';
+import { Box, Button, FormControl, IconButton, InputLabel, MenuItem, Select, Typography } from '@material-ui/core';
+// import useStyles from './cartStyles';
+import React, { useEffect, useState } from 'react';
 import { Paper, Table, TableBody, TableCell,
   TableContainer, TableHead, TableRow } from '@material-ui/core';
 import { useHistory } from "react-router-dom";
 
 
-
-function Cart({cartItems, setCartItems}) {
-  const classes = useStyles();
-
+function Cart({cartItems, setCartItems, cartSummary }) {
+  // const classes = useStyles();
+  
   const history = useHistory();
+  const [sCode, setSCode] = useState('Canada');
+  const [svar, setSvar] = useState(12);
+  
+  useEffect(()=>{
+    switch (sCode) {
+      case "Calgary": 
+        setSvar(7);        
+        break;
+      case "Alberta": 
+        setSvar(8);        
+        break;
+      case "Canada": 
+        setSvar(10);        
+        break;
+      case "International": 
+        setSvar(12);        
+        break;
+      default:
+        setSvar(12);        
+        break;
+    };
+  },[sCode])
+  
+  const itemsPrice = Number(cartItems.reduce( (a, c) => a + c.price * c.qty, 0)); 
+  const taxPrice = Number(itemsPrice * 0);
+  const qtyTotal = Number(cartItems.reduce( (a, c) => a + c.qty, 0));
+  const shippingPrice = Number((qtyTotal * svar * 0.98 ** qtyTotal).toFixed(2));
+  const totalPrice = Number(itemsPrice + taxPrice + shippingPrice);
+  console.log("totalPrice", itemsPrice, shippingPrice, totalPrice);
 
-  const itemsPrice = cartItems.reduce( (a, c) => a + c.price * c.qty, 0); 
-  const taxPrice = itemsPrice * 0;
-  const qtyTotal = cartItems.reduce( (a, c) => a + c.qty, 0)
-  const shippingPrice = qtyTotal * 15 * 0.9 ** qtyTotal;
-  const totalPrice = itemsPrice + taxPrice + shippingPrice;
+  cartSummary.current = {
+    itemsPrice: itemsPrice,
+    taxPrice: taxPrice,
+    qtyTotal: qtyTotal,
+    shippingPrice: shippingPrice,
+    totalPrice: totalPrice,
+  }
+
+console.log("cart summary", cartSummary.current.totalPrice);
 
   const handlePlusMinus = (event, pickItem, num) => {
     console.log("cart cart:", pickItem, num);
@@ -37,7 +69,7 @@ function Cart({cartItems, setCartItems}) {
         item));
     };
     
-    console.log("cart cart:", cartItems);
+    // console.log("cart cart:", cartItems);
 
   };
   
@@ -51,7 +83,7 @@ function Cart({cartItems, setCartItems}) {
   return (
   
     <div>
-      <Box
+      <Box align="center"
         sx={{
           bgcolor: 'background.paper',
           boxShadow: 1,
@@ -69,6 +101,7 @@ function Cart({cartItems, setCartItems}) {
             <TableHead>
               <TableRow>
                 <TableCell><Typography varient="body1">ID/Size</Typography></TableCell>
+                <TableCell><Typography varient="body1">Picture</Typography></TableCell>
                 <TableCell><Typography varient="body1">Name</Typography></TableCell>
                 <TableCell align="center"><Typography varient="body1">Quantity</Typography></TableCell>
                 <TableCell align="right"><Typography varient="body1">Price Each</Typography></TableCell>
@@ -83,7 +116,10 @@ function Cart({cartItems, setCartItems}) {
                 >
                   
                   <TableCell component="th" scope="row">
-                    <Typography varient="body1">{item.id} / {item.size}</Typography>
+                    <Typography varient="body1">{item.id}</Typography>
+                  </TableCell>
+                  <TableCell scope="row">
+                    <img src={item.image} width="89" height="45" alt="preview"/>
                   </TableCell>
                   <TableCell><Typography varient="body1">{item.name}</Typography></TableCell>
                   <TableCell align="center">
@@ -104,28 +140,50 @@ function Cart({cartItems, setCartItems}) {
 
               <TableRow>
                 <TableCell rowSpan={4} />
-                <TableCell colSpan={3}><Typography varient="body1">Subtotal</Typography></TableCell>
+                <TableCell colSpan={4}><Typography varient="body1">Subtotal</Typography></TableCell>
                 <TableCell align="right"><Typography varient="body1">{itemsPrice.toFixed(2)}</Typography></TableCell>
               </TableRow>
               <TableRow>
-                <TableCell colSpan={2}><Typography varient="body1">Tax</Typography></TableCell>
+                <TableCell colSpan={3}><Typography varient="body1">Tax</Typography></TableCell>
                 <TableCell align="right"><Typography varient="body1">{`${(0.00 * 100).toFixed(0)} %`}</Typography></TableCell>
                 <TableCell align="right"><Typography varient="body1">{taxPrice.toFixed(2)}</Typography></TableCell>
               </TableRow>
               <TableRow>
-                <TableCell colSpan={3}><Typography varient="body1">Shipping</Typography></TableCell>
-                <TableCell align="right"><Typography varient="body1">{shippingPrice.toFixed(2)}</Typography></TableCell>
+                <TableCell colSpan={1}><Typography varient="body1">Shipping</Typography></TableCell>
+                <TableCell colSpan={3}>
+                  <Typography varient="body1">
+
+                    <FormControl variant="outlined" >
+                      <InputLabel id="shipping-code">destnation</InputLabel>
+                      <Select
+                        labelId="shipping-code"
+                        id="sCode"
+                        value={sCode}
+                        onChange={(e) => setSCode(e.target.value)}
+                        label="shipping"
+                        // error={sCodeError}
+                      >
+                        <MenuItem key="1" value="Calgary">Calgary</MenuItem>    
+                        <MenuItem key="2" value="Alberta">Alberta</MenuItem>    
+                        <MenuItem key="3" value="Canada">Canada</MenuItem>    
+                        <MenuItem key="4" value="International">International</MenuItem>    
+                      </Select>
+                    </FormControl>
+
+                  </Typography>
+                </TableCell>
+                <TableCell align="right"><Typography varient="body1">{shippingPrice}</Typography></TableCell>
               </TableRow>
               <TableRow>
-                <TableCell colSpan={3}><Typography varient="body1">Total</Typography></TableCell>
-                <TableCell align="right"><Typography varient="body1">{totalPrice.toFixed(2)}</Typography></TableCell>
+                <TableCell colSpan={4}><Typography varient="body1">Total</Typography></TableCell>
+                <TableCell align="right"><Typography varient="body1">{totalPrice}</Typography></TableCell>
               </TableRow>
 
             </TableBody>
           </Table>
         </TableContainer>
         
-        <Button onClick={handleCheckOut}>Check Out</Button>
+        <Button onClick={handleCheckOut} variant="contained" color="secondary" >Check Out</Button>
 
       </Box>
       
