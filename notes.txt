@@ -25,6 +25,9 @@ m: 12.5 to 17 inches
 L: 17 to 22 inches
 XL: 22 to 27 inches
 
+React deploy
+https://create-react-app.dev/docs/deployment/
+
 Heroku deploy
 https://blog.heroku.com/deploying-react-with-zero-configuration
 npm install -g create-react-app
