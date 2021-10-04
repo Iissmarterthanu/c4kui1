@@ -43,7 +43,6 @@ function App() {
     totalPrice: 0,
   })
 
-
   // run once
   useEffect( () => {
     getFromFS("groups", setGroups );

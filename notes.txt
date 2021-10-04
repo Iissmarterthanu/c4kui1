@@ -25,6 +25,18 @@ m: 12.5 to 17 inches
 L: 17 to 22 inches
 XL: 22 to 27 inches
 
+Heroku deploy
+https://blog.heroku.com/deploying-react-with-zero-configuration
+npm install -g create-react-app
+create-react-app my-app
+cd my-app
+git init
+heroku create -b https://github.com/mars/create-react-app-buildpack.git
+git add .
+git commit -m "react-create-app on Heroku"
+git push heroku master
+heroku open
+
 theme
 https://bareynol.github.io/mui-theme-creator/
 
