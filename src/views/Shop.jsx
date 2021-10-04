@@ -13,8 +13,6 @@ export default function Shop(props) {
   const { params } = match;
   const { groupCode } = params;
 
-  
-  
   let history = useHistory();
   let pickPrice = "";
   

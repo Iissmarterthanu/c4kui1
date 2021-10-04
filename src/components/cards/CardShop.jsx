@@ -58,6 +58,13 @@ export default function CardShop({
     setPickSize(newPickSize);
   };
   
+  const sizeDesc = {
+    S: "9 to 12 inches",
+    m: "12.5 to 17 inches",
+    l: "17 to 22 inches",
+    xl: "22 to 27 inches",
+  };
+
   useEffect(()=>{
     if (pickSize) {
       setPickPrice(currProduct.prices[pickSize]);
@@ -135,7 +142,8 @@ export default function CardShop({
             pickSize={pickSize}
             handlePickSize={handlePickSize} />
 
-          <Typography variant="h6">Price: {pickPrice}</Typography>
+          <Typography variant="body1" align="center">fits {sizeDesc[pickSize]}</Typography>
+          <Typography variant="h6">Price: Cdn$ {pickPrice}</Typography>
 
         </CardContent>
       {/* </CardActionArea> */}
