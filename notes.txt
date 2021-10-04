@@ -20,6 +20,11 @@ npm install -D dotenv nodemon
 npm uninstall x
 npm remove x 
 
+S: 9 to 12 inches
+m: 12.5 to 17 inches
+L: 17 to 22 inches
+XL: 22 to 27 inches
+
 theme
 https://bareynol.github.io/mui-theme-creator/
 
@@ -79,6 +84,10 @@ let newObj = Object.fromEntries(Object.entries(obj).map(([k, v]) => [k, v * v]))
 
 cleanup on unmounting
 https://stackoverflow.com/questions/54954385/react-useeffect-causing-cant-perform-a-react-state-update-on-an-unmounted-comp
+Firebase
+https://www.youtube.com/watch?v=q5J5ho7YUhA
+
+
 
 stripe 
 fullstackstudent course 5hr 3:51

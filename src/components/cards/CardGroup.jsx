@@ -1,4 +1,5 @@
-import { Box, Card, 
+import { 
+  Card, 
   CardActionArea, 
   CardContent, 
   CardMedia, 
@@ -6,7 +7,7 @@ import { Box, Card,
 } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import image2 from "../../assets/1b.jpg";
+// import image2 from "../../assets/1b.jpg";
 
 export default function CardGroup({group}) {
 
@@ -24,7 +25,7 @@ export default function CardGroup({group}) {
         <CardMedia
           component="img"
           height="140"
-          image={image2}
+          image={group.images[0]}
           alt={group.id}
         />
         <CardContent>
