@@ -18,6 +18,8 @@ import useStyles from './appStyles';
 import LogIn from "./components/signing/LogIn";
 import SignUp from "./components/signing/SignUp";
 import ResetPW from "./components/signing/ResetPW";
+import Privacy from "./components/footer/Privacy";
+import Terms from "./components/footer/Terms";
 import Test from "./tests/TestResize";
 // import TestDB from "./components/TestDB";
 
@@ -94,7 +96,7 @@ function App() {
 
           <Route path="/Cart" render={(props) => 
             <Cart cartItems={cartItems} setCartItems={setCartItems} 
-              cartSummary={cartSummary}
+              cartSummary={cartSummary} user={user}
               {...props}
               />
             } />
@@ -122,6 +124,12 @@ function App() {
 
           <Route path="/ResetPW" render={(props) => 
             <ResetPW {...props}/>} />
+
+          <Route path="/Privacy" render={(props) => 
+            <Privacy {...props}/>} />
+
+          <Route path="/Terms" render={(props) => 
+            <Terms {...props}/>} />
 
           <Route path="/Test" render={(props) => 
             <Test

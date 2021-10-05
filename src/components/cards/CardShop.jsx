@@ -5,15 +5,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import { red } from '@material-ui/core/colors';
 import PriceTable from '../priceTable/PriceTable';
 import Modal from '@material-ui/core/Modal';
-import { Box, Container } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import ShopImageList from './ShopImageList';
-import { typography } from '@mui/system';
 import { Stack } from '@mui/material';
-// import image3 from "../../assets/1b.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,9 +69,7 @@ export default function CardShop({
     } else {
       setPickPrice("select a size");
     };
-
-    console.log("card: ", pickPrice);
-
+    // console.log("card: ", pickPrice);
   },[pickSize, currProduct.prices])
 
   const [open, setOpen] = React.useState(false);
@@ -94,7 +90,9 @@ export default function CardShop({
           <Typography variant="h6" id="modal-description">
             {item.desc}
           </Typography>
-          <ShopImageList images={item.images} />
+          <Box mb={1} >
+            <ShopImageList images={item.images} />
+          </Box>
           <Stack spacing={2} direction="row">
             <Button size="medium" color="secondary" variant="contained"
               key={item.code}
@@ -129,10 +127,10 @@ export default function CardShop({
           title={item.name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="Typography">
+          <Typography gutterBottom variant="h5">
             {item.name}
           </Typography>
-          <Typography variant="body1" color="textPrimary" component="p">
+          <Typography variant="body1" color="textPrimary">
             {item.desc}
           </Typography>
 

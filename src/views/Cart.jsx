@@ -1,12 +1,11 @@
 import { Box, Button, FormControl, IconButton, InputLabel, MenuItem, Select, Typography } from '@material-ui/core';
-// import useStyles from './cartStyles';
 import React, { useEffect, useState } from 'react';
 import { Paper, Table, TableBody, TableCell,
   TableContainer, TableHead, TableRow } from '@material-ui/core';
 import { useHistory } from "react-router-dom";
 
 
-function Cart({cartItems, setCartItems, cartSummary }) {
+function Cart({ cartItems, setCartItems, cartSummary, user }) {
   // const classes = useStyles();
   
   const history = useHistory();
@@ -37,8 +36,8 @@ function Cart({cartItems, setCartItems, cartSummary }) {
   const taxPrice = Number(itemsPrice * 0);
   const qtyTotal = Number(cartItems.reduce( (a, c) => a + c.qty, 0));
   const shippingPrice = Number((qtyTotal * svar * 0.98 ** qtyTotal).toFixed(2));
-  const totalPrice = Number(itemsPrice + taxPrice + shippingPrice);
-  console.log("totalPrice", itemsPrice, shippingPrice, totalPrice);
+  const totalPrice = Number((itemsPrice + taxPrice + shippingPrice).toFixed(2));
+  // console.log("totalPrice", itemsPrice, shippingPrice, totalPrice);
 
   cartSummary.current = {
     itemsPrice: itemsPrice,
@@ -48,10 +47,10 @@ function Cart({cartItems, setCartItems, cartSummary }) {
     totalPrice: totalPrice,
   }
 
-console.log("cart summary", cartSummary.current.totalPrice);
+  // console.log("cart summary", cartSummary.current.totalPrice);
 
   const handlePlusMinus = (event, pickItem, num) => {
-    console.log("cart cart:", pickItem, num);
+    // console.log("cart cart:", pickItem, num);
    
     cartItems.map(item => console.log(pickItem.id, item.id,
       item.id === pickItem.id ?
@@ -60,10 +59,10 @@ console.log("cart summary", cartSummary.current.totalPrice);
     ));
     
     if ( Number(pickItem.qty) === 1 && num === -1 )  {
-      console.log("remove");
+      // console.log("remove");
       setCartItems(cartItems.filter(item => item.id !== pickItem.id ));
     } else {
-      console.log("increment");
+      // console.log("increment");
       setCartItems(cartItems.map(item => item.id === pickItem.id ?
         {...item, qty: Number(item.qty) + num } : 
         item));
@@ -75,9 +74,13 @@ console.log("cart summary", cartSummary.current.totalPrice);
   
   const handleCheckOut = (event) => {
     event.preventDefault();
-    console.log("cart checkout", totalPrice);
-    history.push("/CheckOut");
-
+    // console.log("cart checkout", totalPrice);
+    
+    if (user==="none") {
+      history.push("/LogIn");
+    } else {
+      history.push("/CheckOut");
+    }
   }
 
   return (
@@ -183,7 +186,13 @@ console.log("cart summary", cartSummary.current.totalPrice);
           </Table>
         </TableContainer>
         
-        <Button onClick={handleCheckOut} variant="contained" color="secondary" >Check Out</Button>
+        <Button 
+          onClick={handleCheckOut} 
+          variant="contained" 
+          color="secondary" 
+        >
+          {user==="none" ? "Log-In" : "Continue" }
+        </Button>
 
       </Box>
       

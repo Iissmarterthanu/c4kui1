@@ -1,18 +1,26 @@
 import React from 'react';
+import { Button, Typography } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
+import Container from '@mui/material/Container';
 
 const Canceled = ({ history }) => {
+
   return (
-      <div className='checkout'>
-        <h1>Payment failed</h1>
-        <p>Payment was not successful</p>
+      <Container align="center" maxWidth="sm">
+        <Typography variant="h4" gutterBottom>Payment failed</Typography>
+        <Typography variant="h5">
+          Payment was not successful
+        </Typography>
         <div>
-          <button className='button is-black nomad-btn submit' 
-          onClick={() => history.push('/shop')}>
+          <Button 
+            variant="contained" 
+            color="secondary" 
+            onClick={() => history.push('/')}
+            >
             Continue Shopping
-          </button>
+          </Button>
         </div>
-      </div>
+      </Container>
   );
 }
 

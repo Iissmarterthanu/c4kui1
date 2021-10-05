@@ -12,7 +12,7 @@ const useStyles = makeStyles({
 });
 
 function PriceTable({currProduct, item, pickSize, handlePickSize}) {
-  // const classes = useStyles();
+  const classes = useStyles();
   // console.log(item.name);
   // console.log(item.stock);
   const stocks = Object.entries(item.stock);
@@ -27,6 +27,7 @@ function PriceTable({currProduct, item, pickSize, handlePickSize}) {
     <div>
       <Typography variant="h6">Sizes:</Typography>
         <Box 
+        className={classes.table}
         sx={{
           display: 'flex',
           flexDirection: 'column',

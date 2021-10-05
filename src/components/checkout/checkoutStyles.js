@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Autocomplete } from '@material-ui/lab';
 
 const useStyles = makeStyles((theme) => ({
   checkout: {

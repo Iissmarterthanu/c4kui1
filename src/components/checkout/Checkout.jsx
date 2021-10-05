@@ -1,21 +1,18 @@
-import { Button, Container, Typography } from '@material-ui/core';
+import { Button, CircularProgress, Container, Typography } from '@material-ui/core';
 import React, { useState } from 'react';
 import useStyles from './checkoutStyles';
-import StripePayment from '../stripeExtra/StripePayment';
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { getFunctions, httpsCallable } from "firebase/functions";
-import Stripe from 'stripe';
+// import Stripe from 'stripe';
 // import axios from 'axios';
-
 
 const Checkout = ({ cartItems, user, cartSummary}) => {
   const classes = useStyles();
-  console.log("Checkout");
-  console.log("user:", user);
-  console.log("shipping:", cartSummary);
+  // console.log("Checkout");
+  // console.log("user:", user);
+  // console.log("shipping:", cartSummary);
   
-  const [success, setSuccess] = useState(false);
   const [email, setEmail] = useState(user);
+  const [disabled, setDisabled] = useState(false);
   
   const lineItems = cartItems.map(item => {
     return {
@@ -46,24 +43,25 @@ const Checkout = ({ cartItems, user, cartSummary}) => {
   });
 
     
-  console.log("lineItems:", lineItems);
+  // console.log("lineItems:", lineItems);
 
   
   
   const handleCheckout = (e) => {
+    e.preventDefault();
+    setDisabled(true);
     const functions = getFunctions();
     const createStripeCheckout = httpsCallable(functions, 'createStripeCheckout');
-    const stripe = Stripe('pk_test_PZIvBeA5yTqiUOOiBBHA96AM00G7Pg3YgS');
-    e.preventDefault();
-    console.log("handleCheckout");
+    // const stripe = Stripe('pk_test_PZIvBeA5yTqiUOOiBBHA96AM00G7Pg3YgS');
+    // console.log("handleCheckout");
     createStripeCheckout(
       {
         customer_email: email,
         line_items: lineItems,
       }
     ).then(response=>{
-      const sessionId = response.data.id; 
-      console.log("check1",response.data);
+      // const sessionId = response.data.id; 
+      // console.log("check1",response.data);
       window.location = response.data.url;
       // stripe.redirectToCheckout({ sessionId: sessionId });
     }).catch((error) => {
@@ -77,7 +75,14 @@ const Checkout = ({ cartItems, user, cartSummary}) => {
         <Typography variant="h4" align="center">Checkout Summary</Typography>
         <Typography variant="h5" align="center">Total Items: {cartSummary.current.qtyTotal}</Typography>
         <Typography variant="h5" align="center">Amount to Pay: ${cartSummary.current.totalPrice}</Typography>
-        <Button variant="contained" color="secondary" onClick={handleCheckout}>Continue</Button>
+        <Button 
+          variant="contained" 
+          color="secondary" 
+          onClick={handleCheckout}
+          disabled={disabled}
+        >
+          {disabled ? <CircularProgress /> : "Continue"}
+        </Button>
       </Container>      
     </div>
   );

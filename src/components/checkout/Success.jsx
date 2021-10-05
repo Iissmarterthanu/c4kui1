@@ -1,22 +1,26 @@
+import React from 'react';
 import { Button, Typography } from '@material-ui/core';
-import React, { useContext, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
+import Container from '@mui/material/Container';
 
 const Success = ({ history }) => {
 
   return (
-      <div className='checkout'>
+      <Container align="center" maxWidth="sm">
         <Typography variant="h4" gutterBottom>Thank you for your order</Typography>
         <Typography variant="h5">We are currently processing your order and 
           will send you a confirmation email shortly
         </Typography>
         <div>
-          <Button className='button is-black nomad-btn submit' 
-          onClick={() => history.push('/')}>
+          <Button 
+            variant="contained" 
+            color="secondary" 
+            onClick={() => history.push('/')}
+            >
             Continue Shopping
           </Button>
         </div>
-      </div>
+      </Container>
   );
 }
 

@@ -151,3 +151,11 @@ https://firebase.google.com/docs/functions/config-env
 
 firebase CRUD API
 https://indepth.dev/posts/1084/building-an-api-with-firebase
+
+firebase basics
+https://www.youtube.com/watch?v=q5J5ho7YUhA
+
+Reactjs Material-ui
+font trick & css
+https://www.youtube.com/watch?v=vyJU9efvUtQ
+

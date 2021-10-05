@@ -1,10 +1,10 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import { Box, List, ListItem } from "@material-ui/core";
-import { Container, Grid, Paper, Typography } from '@material-ui/core';
+import { Box, Typography } from "@material-ui/core";
+import { Paper } from '@material-ui/core';
 import { Stack } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import { Facebook, Instagram } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,11 +26,15 @@ function Footer() {
   return (
     <Box sx={{m:"1em 2em"}}>
       <Paper>
-        <Stack direction="row" spacing={2} justifyContent="center">
+        <Stack direction="row" spacing={2} 
+          justifyContent="center"
+          alignContent="center"
+        >
           <a
-            href="https://www.facebook.com/search/top?q=collars%20for%20kings"
+            href="https://www.facebook.com/collarsforkings"
             className={classes.block}
             target="_blank"
+            rel="noreferrer"
             >
             <Facebook/>
           </a>
@@ -38,8 +42,22 @@ function Footer() {
             href="https://www.instagram.com/collarsforkings/"
             className={classes.block}
             target="_blank"
+            rel="noreferrer"
             >
             <Instagram/>
+          </a>
+
+          <Link to="/Privacy">
+            <Typography variant="body1">Privacy</Typography>
+          </Link>
+
+          <a
+            href="https://www.termsandconditionsgenerator.com/live.php?token=qvfeJ0v09Lz9ai6m5ICJc6h81SWPr0up"
+            className={classes.block}
+            target="_blank"
+            rel="noreferrer"
+            >
+            <Typography variant="body1">Terms</Typography>
           </a>
         </Stack>
 
