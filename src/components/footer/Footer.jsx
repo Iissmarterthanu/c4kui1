@@ -47,9 +47,14 @@ function Footer() {
             <Instagram/>
           </a>
 
-          <Link to="/Privacy">
+          <a
+            href="https://www.privacypolicygenerator.info/live.php?token=tlz8SvNJUXNZLVGJoFWZwSw5YEZIH4CZ"
+            className={classes.block}
+            target="_blank"
+            rel="noreferrer"
+            >
             <Typography variant="body1">Privacy</Typography>
-          </Link>
+          </a>
 
           <a
             href="https://www.termsandconditionsgenerator.com/live.php?token=qvfeJ0v09Lz9ai6m5ICJc6h81SWPr0up"
@@ -59,6 +64,7 @@ function Footer() {
             >
             <Typography variant="body1">Terms</Typography>
           </a>
+
         </Stack>
 
       </Paper>

@@ -6,7 +6,7 @@ import useStyles from './bannerStyles';
 import image1 from "../../assets/banner1.png";
 import image2 from "../../assets/banner2.png";
 import image3 from "../../assets/banner3.png";
-// import image4 from "../../assets/banner4.png";
+import image4 from "../../assets/banner4.png";
 
 
 const Banner = () => {
@@ -26,6 +26,9 @@ const Banner = () => {
           </div>
           <div key="image22">
             <img src={image3} alt="" />
+          </div>
+          <div key="image222">
+            <img src={image4} alt="" />
           </div>
         </Carousel>
       </Container>
