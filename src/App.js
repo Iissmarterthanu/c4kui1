@@ -11,6 +11,7 @@ import Home from "./views/Home";
 import Shop from "./views/Shop";
 import Cart from "./views/Cart";
 import Footer from "./components/footer/Footer";
+import About from "./components/about/About";
 
 import theme from './theme'
 import useStyles from './appStyles';
@@ -122,6 +123,9 @@ function App() {
 
           <Route path="/ResetPW" render={(props) => 
             <ResetPW {...props}/>} />
+
+          <Route path="/About" render={(props) => 
+            <About {...props}/>} />
 
           {/* <Route path="/Privacy" render={(props) => 
             <Privacy {...props}/>} />

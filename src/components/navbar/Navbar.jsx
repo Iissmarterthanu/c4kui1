@@ -57,6 +57,9 @@ const NavBar = ({user, setUser, cartItems}) => {
             <Button onClick={()=>history.push("/Cart")} >
               <Typography variant="h6" color="textSecondary">Cart({qtyTotal})</Typography>
             </Button>
+            <Button onClick={()=>history.push("/About")} >
+              <Typography variant="h6" color="textSecondary">About Us</Typography>
+            </Button>
             {inOut}
           </Box>
 

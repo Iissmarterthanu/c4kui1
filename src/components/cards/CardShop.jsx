@@ -35,7 +35,7 @@ const modalStyle = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: "80%",
-  height: "90%", 
+  height: "95%", 
   maxWidth: "640px",
   bgcolor: 'background.paper',
   border: '2px solid #000',
@@ -90,7 +90,7 @@ export default function CardShop({
           <Typography variant="h6" id="modal-description">
             {item.desc}
           </Typography>
-          <Box mb={1} >
+          <Box>
             <ShopImageList images={item.images} />
           </Box>
           <Stack spacing={2} direction="row">
@@ -103,7 +103,6 @@ export default function CardShop({
               Add to Cart
             </Button>
             <Button size="small" color="secondary" variant="outlined"
-              sx={{margin: "0 1em"}}
               onClick={ () => handleClose() } >
               Continue Shopping
             </Button>
