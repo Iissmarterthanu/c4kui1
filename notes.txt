@@ -25,8 +25,14 @@ m: 12.5 to 17 inches
 L: 17 to 22 inches
 XL: 22 to 27 inches
 
+godaddy.ca
 411982201
 PW: r00tb33r@
+
+cPanel login
+http://yourDomainName/cpanel
+ktq2ppc650v8
+pw: R00tb33r@@@
 
 React deploy
 https://create-react-app.dev/docs/deployment/
