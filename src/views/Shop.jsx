@@ -113,15 +113,17 @@ export default function Shop(props) {
     <div>
       {/* <Typography variant="body1">Group:</Typography> */}
 
-      <ToggleButtonGroup style={{display: "block"}}
+      <ToggleButtonGroup 
+        style={{display: "block",  }}
+        align="center"
         value={pickGroup}
         exclusive
         onChange={handlePickGroup}
-        aria-label="text PickGroup"
-      >
+        aria-label="PickGroup"
+        >
           {groups.map((group)=>(
             <ToggleButton value={group.id} key={group.id} 
-              style={{textTransform: 'none'}}>
+            style={{textTransform: 'none'}}>
               <Typography >{group.name}</Typography>
             </ToggleButton>
           ))}
@@ -130,10 +132,12 @@ export default function Shop(props) {
       {/* <Typography variant="body1">Sub Group:</Typography> */}
       
       <ToggleButtonGroup
+        style={{display: "block",  }}
+        align="center"
         value={pickProduct}
         exclusive
         onChange={handlePickProduct}
-        aria-label="text PickProduct"
+        aria-label="PickProduct"
       >
           {filteredProducts.map((product)=>(
             <ToggleButton value={product.id} key={product.id} 

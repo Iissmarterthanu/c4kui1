@@ -6,7 +6,8 @@ import { useHistory, withRouter } from "react-router-dom";
 import { logout } from '../../hooks/useAuth';
 
 import useStyles from './navbarStyles';
-import { Box, Button } from '@material-ui/core';
+import { Box, Button, IconButton } from '@material-ui/core';
+import logo from '../../assets/Collars for Kings logo.png';
 
 const NavBar = ({user, setUser, cartItems}) => {
   const classes = useStyles();
@@ -40,8 +41,13 @@ const NavBar = ({user, setUser, cartItems}) => {
         <AppBar position="fixed">
           <Toolbar className={classes.toolbar}>
 
-          <Box display="flex" justifyContent="center" m={0} p={0} 
-            bgcolor="#f2f4f5">
+
+          <Box display="flex" 
+            justifyContent="center" 
+            alignContent="center"
+            m={0} p={0} 
+            bgcolor="#fff">
+            <img src={logo} height="65" />
             <Typography variant="body2" color="textPrimary">
               Collars for Kings
             </Typography>

@@ -1,6 +1,6 @@
 // firebase deploy --only functions
 const functions = require('firebase-functions');
-const YOUR_DOMAIN = 'http://localhost:3000/checkout';
+const YOUR_DOMAIN = 'https://CollarsForKings/checkout';
 
 exports.createStripeCheckout = functions.https.onCall(async (data, context) => {
 	// functions.logger.log("data", data);
