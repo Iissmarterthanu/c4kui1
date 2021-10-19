@@ -15,14 +15,15 @@ function PriceTable({currProduct, item, pickSize, handlePickSize}) {
   const classes = useStyles();
   // console.log(item.name);
   // console.log(item.stock);
-  const stocks = Object.entries(item.stock);
-  const filteredStocks = stocks.filter(stock=>stock[1]!=="")
-  // console.log(filteredStocks);
+  const stocks = item.stock;
+  // const stocks = Object.entries(item.stock);
+  // const filteredStocks = stocks.filter(stock=>stock[1]!=="")
+  // console.log(filteredStocks.sort());
   // console.log(currProduct.prices);
   // const sizeTab = {s:"small",m:"medium",l:"large",xl:"XL",};
   // const filteredPrices = filteredStocks.map(stock=>([...stock,sizeTab[stock[0]],currProduct.prices[stock[0]]]))
   // console.log(filteredPrices);
-
+  
   return (
     <div>
       <Typography variant="h6">Sizes:</Typography>
@@ -41,12 +42,38 @@ function PriceTable({currProduct, item, pickSize, handlePickSize}) {
             aria-label="PickSize"
             >
 
-              {filteredStocks.map((stock)=>(
+            {stocks.s !== "" &&
+              <ToggleButton value={"s"} key={"s"} style={{textTransform: 'none'}}>
+                <Typography align="right" key={"S"}>S</Typography>
+              </ToggleButton>
+            }
+
+            {stocks.m !== "" &&
+              <ToggleButton value={"m"} key={"m"} style={{textTransform: 'none'}}>
+                <Typography align="right" key={"M"}>M</Typography>
+              </ToggleButton>
+            }
+
+            {stocks.l !== "" &&
+              <ToggleButton value={"l"} key={"l"} style={{textTransform: 'none'}}>
+                <Typography align="right" key={"L"}>L</Typography>
+              </ToggleButton>
+            }
+
+            {stocks.xl !== "" &&
+              <ToggleButton value={"xl"} key={"xl"} style={{textTransform: 'none'}}>
+                <Typography align="right" key={"XL"}>{"XL"}</Typography>
+              </ToggleButton>
+            }
+
+
+
+              {/* {filteredStocks.map((stock)=>(
                 <ToggleButton value={stock[0]} key={stock[0]} 
                 style={{textTransform: 'none'}}>
                   <Typography align="right" key={stock[0]}>{stock[0]}</Typography>
                 </ToggleButton>
-              ))}
+              ))} */}
 
           </ToggleButtonGroup>
         </Box>

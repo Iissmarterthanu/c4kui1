@@ -57,7 +57,7 @@ export default function CardShop({
   };
   
   const sizeDesc = {
-    S: "9 to 12 inches",
+    s: "9 to 12 inches",
     m: "12.5 to 17 inches",
     l: "17 to 22 inches",
     xl: "22 to 27 inches",

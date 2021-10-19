@@ -35,7 +35,8 @@ function Cart({ cartItems, setCartItems, cartSummary, user }) {
   const itemsPrice = Number(cartItems.reduce( (a, c) => a + c.price * c.qty, 0)); 
   const taxPrice = Number(itemsPrice * 0);
   const qtyTotal = Number(cartItems.reduce( (a, c) => a + c.qty, 0));
-  const shippingPrice = Number((qtyTotal * svar * 0.98 ** qtyTotal).toFixed(2));
+  // const shippingPrice = Number((qtyTotal * svar * 0.98 ** qtyTotal).toFixed(2));
+  const shippingPrice = Number((0).toFixed(2));
   const totalPrice = Number((itemsPrice + taxPrice + shippingPrice).toFixed(2));
   // console.log("totalPrice", itemsPrice, shippingPrice, totalPrice);
 
@@ -175,11 +176,12 @@ function Cart({ cartItems, setCartItems, cartSummary, user }) {
 
                   </Typography>
                 </TableCell>
-                <TableCell align="right"><Typography varient="body1">{shippingPrice}</Typography></TableCell>
+                {/* <TableCell align="right"><Typography varient="body1">{shippingPrice}</Typography></TableCell> */}
+                <TableCell align="right"><Typography varient="body1">FREE</Typography></TableCell>
               </TableRow>
               <TableRow>
                 <TableCell colSpan={4}><Typography varient="body1">Total</Typography></TableCell>
-                <TableCell align="right"><Typography varient="body1">{totalPrice}</Typography></TableCell>
+                <TableCell align="right"><Typography varient="body1">{totalPrice.toFixed(2)}</Typography></TableCell>
               </TableRow>
 
             </TableBody>

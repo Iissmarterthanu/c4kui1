@@ -12,7 +12,7 @@ async function getFromFS(col, callBack) {
     const ref = collection(db, col);
     const snapshot = await getDocs(ref);
     list = snapshot.docs.map(doc => doc.data());
-    localStorage.setItem(col, JSON.stringify(list));
+    // localStorage.setItem(col, JSON.stringify(list));
     console.log("db"); 
   }
 

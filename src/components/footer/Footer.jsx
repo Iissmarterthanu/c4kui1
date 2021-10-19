@@ -4,7 +4,6 @@ import { Box, Typography } from "@material-ui/core";
 import { Paper } from '@material-ui/core';
 import { Stack } from '@mui/material';
 import { Facebook, Instagram } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({

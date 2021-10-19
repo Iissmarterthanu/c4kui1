@@ -12,7 +12,7 @@ const About = ({ history }) => {
         <Typography variant="h6" align="left" gutterBottom>
         I wanted to take a moment and introduce myself and the rest of my team. 
         </Typography>
-        <img src={picture}/>
+        <img src={picture} alt=""/>
         <Typography variant="body1" align="left" gutterBottom>
         I started this business in 2014 as a way to support my rescue endeavors in Qatar. 
         From a very young age I have always loved animals and when I went to Qatar with my husband, 

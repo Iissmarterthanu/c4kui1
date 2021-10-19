@@ -6,7 +6,7 @@ import { useHistory, withRouter } from "react-router-dom";
 import { logout } from '../../hooks/useAuth';
 
 import useStyles from './navbarStyles';
-import { Box, Button, IconButton } from '@material-ui/core';
+import { Box, Button } from '@material-ui/core';
 import logo from '../../assets/Collars for Kings logo.png';
 
 const NavBar = ({user, setUser, cartItems}) => {
@@ -47,7 +47,7 @@ const NavBar = ({user, setUser, cartItems}) => {
             alignContent="center"
             m={0} p={0} 
             bgcolor="#fff">
-            <img src={logo} height="65" />
+            <img src={logo} alt="" height="65" />
             <Typography variant="body2" color="textPrimary">
               Collars for Kings
             </Typography>

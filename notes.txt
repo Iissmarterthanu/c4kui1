@@ -30,9 +30,17 @@ godaddy.ca
 PW: r00tb33r@
 
 cPanel login
-http://yourDomainName/cpanel
+http://collarsforkings/cpanel
 ktq2ppc650v8
 pw: R00tb33r@@@
+
+git add -A
+git commit -m "react-create-app on Heroku"
+git push origin master
+npm run build
+
+
+https://dev.to/crishanks/deploy-host-your-react-app-with-cpanel-in-under-5-minutes-4mf6
 
 React deploy
 https://create-react-app.dev/docs/deployment/
@@ -46,6 +54,7 @@ git init
 heroku create -b https://github.com/mars/create-react-app-buildpack.git
 git add .
 git commit -m "react-create-app on Heroku"
+git push origin master
 git push heroku master
 heroku open
 
