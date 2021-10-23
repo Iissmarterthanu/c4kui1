@@ -30,9 +30,11 @@ godaddy.ca
 PW: r00tb33r@
 
 cPanel login
-http://collarsforkings/cpanel
+http://yourDomainName/cpanel
+https://p3plzcpnl489472.prod.phx3.secureserver.net:2083/cpsess0355329346/frontend/paper_lantern/index.html
 ktq2ppc650v8
 pw: R00tb33r@@@
+
 
 git add -A
 git commit -m "react-create-app on Heroku"
