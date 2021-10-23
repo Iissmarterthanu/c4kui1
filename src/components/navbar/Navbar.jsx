@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { useHistory, withRouter } from "react-router-dom";
-import { logout } from '../../hooks/useAuth';
+// import { logout } from '../../hooks/useAuth';
 
 import useStyles from './navbarStyles';
 import { Box, Button } from '@material-ui/core';
@@ -14,24 +14,24 @@ const NavBar = ({user, setUser, cartItems}) => {
   const history = useHistory();
   const qtyTotal = cartItems.reduce( (a, c) => a + c.qty, 0)
   
-  // const click = () => getUser(user, setUser);
+  // // const click = () => getUser(user, setUser);
   
-  const handleLogOut = () => {
-    logout(setUser);
-  };
+  // const handleLogOut = () => {
+  //   logout(setUser);
+  // };
   
-  let inOut;
-  if(user === "none") {
-    inOut = 
-    <Button onClick={()=>history.push("/LogIn")} >
-      <Typography variant="h6" color="textSecondary">Log-In</Typography>
-    </Button>;
-  } else {
-    inOut = 
-    <Button onClick={handleLogOut} className={classes.link} >
-      <Typography variant="h6" color="textSecondary">Log-Out</Typography>
-    </Button>;
-  } 
+  // let inOut;
+  // if(user === "none") {
+  //   inOut = 
+  //   <Button onClick={()=>history.push("/LogIn")} >
+  //     <Typography variant="h6" color="textSecondary">Log-In</Typography>
+  //   </Button>;
+  // } else {
+  //   inOut = 
+  //   <Button onClick={handleLogOut} className={classes.link} >
+  //     <Typography variant="h6" color="textSecondary">Log-Out</Typography>
+  //   </Button>;
+  // } 
     
 
     
@@ -66,7 +66,7 @@ const NavBar = ({user, setUser, cartItems}) => {
             <Button onClick={()=>history.push("/About")} >
               <Typography variant="h6" color="textSecondary">About Us</Typography>
             </Button>
-            {inOut}
+            {/* {inOut} */}
           </Box>
 
           </Toolbar>

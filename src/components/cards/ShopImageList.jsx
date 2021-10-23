@@ -14,7 +14,7 @@ export default function ShopImageList( {images} ) {
       showThumbs 
     >
       {images.map((image) => (
-        <img src={image} alt="" />
+        <img src={image} alt=""/>
       ))}
     </Carousel>
   );

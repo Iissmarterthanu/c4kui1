@@ -34,9 +34,9 @@ const modalStyle = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: "80%",
-  height: "95%", 
-  maxWidth: "640px",
+  width: "75%",
+  height: "98%", 
+  maxWidth: "540px",
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -155,14 +155,7 @@ export default function CardShop({
           onClick={ (event) => handleOpen(event, item, pickSize) } >
           Learn More
         </Button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-        >
-          {body}
-        </Modal>
+        {body}
       </CardActions>
     </Card>
   );

@@ -23,7 +23,7 @@ function Footer() {
   const classes = useStyles();
 
   return (
-    <Box sx={{m:"1em 0em"}}>
+    <Box sx={{m:"1em 2em"}}>
       <Paper>
         <Stack direction="row" spacing={2} 
           justifyContent="center"
