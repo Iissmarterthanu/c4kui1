@@ -7,7 +7,7 @@ import image1 from "../../assets/banner1.png";
 import image2 from "../../assets/banner2.png";
 import image3 from "../../assets/banner3.png";
 import image4 from "../../assets/banner4.png";
-
+import vision from "../../assets/vision fbc.png";
 
 const Banner = () => {
   const classes = useStyles();
@@ -18,6 +18,9 @@ const Banner = () => {
 
       <Container className={classes.image}>
         <Carousel width="100%" interval={5000} dynamicHeight={true} infiniteLoop useKeyboardArrows autoPlay showStatus={false} showThumbs={false} >
+          <div key="vision">
+            <img src={vision} alt="" />
+          </div>
           <div key="image1">
             <img src={image1} alt="" />
           </div>

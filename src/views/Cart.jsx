@@ -24,11 +24,11 @@ function Cart({ cartItems, setCartItems, cartSummary, user }) {
       case "Canada": 
         setSvar(0);        
         break;
-      case "International": 
-        setSvar(11);        
+      case "US": 
+        setSvar(10.5);        
         break;
       default:
-        setSvar(11);        
+        setSvar(16.5);        
         break;
     };
   },[sCode])
@@ -36,7 +36,7 @@ function Cart({ cartItems, setCartItems, cartSummary, user }) {
   const itemsPrice = Number(cartItems.reduce( (a, c) => a + c.price * c.qty, 0)); 
   const taxPrice = Number(itemsPrice * 0);
   const qtyTotal = Number(cartItems.reduce( (a, c) => a + c.qty, 0));
-  const shippingPrice = Number((qtyTotal * svar * 0.98 ** qtyTotal).toFixed(2));
+  const shippingPrice = Number((svar + (qtyTotal-1) * 3.5 ).toFixed(2));
   const totalPrice = Number((itemsPrice + taxPrice + shippingPrice).toFixed(2));
   // console.log("totalPrice", itemsPrice, shippingPrice, totalPrice);
 
@@ -172,6 +172,8 @@ function Cart({ cartItems, setCartItems, cartSummary, user }) {
                         <MenuItem key="1" value="Calgary">Calgary</MenuItem>    
                         <MenuItem key="2" value="Alberta">Alberta</MenuItem>    
                         <MenuItem key="3" value="Canada">Canada</MenuItem>    
+                        <MenuItem key="4" value="US">US</MenuItem>    
+                        <MenuItem key="5" value="UK">UK</MenuItem>    
                         {/* <MenuItem key="4" value="International">International</MenuItem>     */}
                       </Select>
                     </FormControl>

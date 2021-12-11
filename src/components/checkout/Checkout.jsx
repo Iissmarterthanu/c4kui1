@@ -9,7 +9,8 @@ const Checkout = ({ cartItems, user, cartSummary}) => {
   // const classes = useStyles();
   // console.log("Checkout");
   // console.log("user:", user);
-  // console.log("shipping:", cartSummary);
+  // console.log("cart summary:", cartSummary);
+  // console.log("shipping:", cartSummary.current.shippingPrice);
   
   // const [email, setEmail] = useState(user);
   const email = user;
@@ -31,19 +32,22 @@ const Checkout = ({ cartItems, user, cartSummary}) => {
     }
   });
   
-  // // Shipping
-  // lineItems.push({
-  //   quantity: 1,
-  //   price_data: {
-  //     currency: 'cad',
-  //     unit_amount: (cartSummary.current.shippingPrice * 100).toFixed(0), // amount is in cents
-  //     product_data: {
-  //       name: "Shipping",
-  //       description: "by post",
-  //       images: [], 
-  //     }
-  //   }
-  // });
+  // Shipping
+  if (cartSummary.current.shippingPrice * 100 > 0) {
+    lineItems.push({
+      quantity: 1,
+      price_data: {
+        currency: 'cad',
+        unit_amount: (cartSummary.current.shippingPrice * 100).toFixed(0), // amount is in cents
+        product_data: {
+          name: "Shipping",
+          description: "by post",
+          images: [], 
+        }
+      }
+    });
+  }
+
 
     
   // console.log("lineItems:", lineItems);

@@ -28,7 +28,7 @@ const About = ({ history }) => {
         I managed to do all of this because people supported my little business. 
         </Typography>
         <Typography variant="body1" align="left" gutterBottom>
-        As I head into retirement I am passing the torch to my son and 
+        As I head into retirement I am passing the torch to my son and daughter-inlaw and 
         we will now give 10% of our profits to rescue groups.
         </Typography>
         <div>
