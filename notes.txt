@@ -37,7 +37,7 @@ pw: R00tb33r@@@
 
 
 git add -A
-git commit -m "react-create-app on Heroku"
+git commit -m "shipping"
 git push origin master
 npm run build
 

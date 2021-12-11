@@ -36,7 +36,7 @@ function Cart({ cartItems, setCartItems, cartSummary, user }) {
   const itemsPrice = Number(cartItems.reduce( (a, c) => a + c.price * c.qty, 0)); 
   const taxPrice = Number(itemsPrice * 0);
   const qtyTotal = Number(cartItems.reduce( (a, c) => a + c.qty, 0));
-  const shippingPrice = Number((svar + (qtyTotal-1) * 3.5 ).toFixed(2));
+  const shippingPrice = Number((svar + (qtyTotal-1) * 3.5 * Math.min(svar,1)).toFixed(2));
   const totalPrice = Number((itemsPrice + taxPrice + shippingPrice).toFixed(2));
   // console.log("totalPrice", itemsPrice, shippingPrice, totalPrice);
 
